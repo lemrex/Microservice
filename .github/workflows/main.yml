@@ -96,17 +96,17 @@ jobs:
           echo "${{ secrets.KUBE_CONFIG_DATA }}" > $KUBECONFIG
       - name: Update deployment
         run: |
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/adservice:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/cartservice:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/checkoutservice:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml   
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/currencyservice:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/emailservice:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/frontend:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/loadgenerator:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/paymentservice:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/productcatalogservice:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/recommendationservice:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml
-          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/shippingservice:${{ github.sha }}@g" ./release/kubernetes-manifests.yaml
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/adservice:${{ github.sha }}@g" release/kubernetes-manifests.yaml
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/cartservice:${{ github.sha }}@g" release/kubernetes-manifests.yaml
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/checkoutservice:${{ github.sha }}@g" release/kubernetes-manifests.yaml   
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/currencyservice:${{ github.sha }}@g" release/kubernetes-manifests.yaml
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/emailservice:${{ github.sha }}@g" release/kubernetes-manifests.yaml
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/frontend:${{ github.sha }}@g" release/kubernetes-manifests.yaml
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/loadgenerator:${{ github.sha }}@g" release/kubernetes-manifests.yaml
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/paymentservice:${{ github.sha }}@g" release/kubernetes-manifests.yaml
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/productcatalogservice:${{ github.sha }}@g" release/kubernetes-manifests.yaml
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/recommendationservice:${{ github.sha }}@g" release/kubernetes-manifests.yaml
+          sed -i "s@swr.af-south-1.myhuaweicloud.com/ralf/hello-world-nodejs:[a-z0-9]*@swr.af-south-1.myhuaweicloud.com/ralf/shippingservice:${{ github.sha }}@g" release/kubernetes-manifests.yaml
 
 
       - name: Debugging
@@ -117,4 +117,4 @@ jobs:
 
       - name: Deploy to Huawei CCE
         run: |
-          kubectl apply -f .release/
+          kubectl apply -f release/
