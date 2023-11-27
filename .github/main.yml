@@ -61,6 +61,12 @@ jobs:
 
       - name: Build and push Docker image
         run: |
+          docker build -t swr.af-south-1.myhuaweicloud.com/ralf/paymentservice:${{ github.sha }} ./src/paymentservice/
+          docker push swr.af-south-1.myhuaweicloud.com/ralf/paymentservice:${{ github.sha }}
+          
+
+      - name: Build and push Docker image
+        run: |
           docker build -t swr.af-south-1.myhuaweicloud.com/ralf/productcatalogservice:${{ github.sha }} ./src/productcatalogservice/
           docker push swr.af-south-1.myhuaweicloud.com/ralf/productcatalogservice:${{ github.sha }}
 
