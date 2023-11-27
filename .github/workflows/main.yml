@@ -13,9 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      #- name: Build Docker image
-      #  run: docker buildx build -t hello ./src/*/Dockerfile
-
       - name: Log in to Huawei Cloud SWR
         uses: huaweicloud/swr-login@v2.1.0
         with:
@@ -39,7 +36,7 @@ jobs:
           docker push swr.af-south-1.myhuaweicloud.com/ralf/checkoutservice:${{ github.sha }}
 
 
-       - name: Build and push Docker image
+      - name: Build and push Docker image
         run: |
           docker build -t swr.af-south-1.myhuaweicloud.com/ralf/currencyservice:${{ github.sha }} ./src/currencyservice/
           docker push swr.af-south-1.myhuaweicloud.com/ralf/currencyservice:${{ github.sha }}
